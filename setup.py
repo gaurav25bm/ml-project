@@ -14,12 +14,14 @@ def get_requirements(file_path:str)->List[str]:
         
     return requirements
 
-setup(
-name = 'mlproject',
-version = '0.0.1',
-author = 'Gaurav',
-author_emaik = 'gauravbm12345@gmail.com',
-packages = find_packages(),
-install_requires = get_requirements('requirements.txt')
+    
 
+from setuptools import find_packages, setup
+
+setup(
+    name='mlproject', # Avoid hyphens in the package name string here
+    version='0.0.1',
+    author='Gaurav',
+    packages=find_packages(),
+    install_requires=[] # If you are parsing requirements.txt here, ensure it isn't reading a blank line or a '-e .' loop improperly
 )
